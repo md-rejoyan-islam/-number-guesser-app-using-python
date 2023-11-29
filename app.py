@@ -1,25 +1,29 @@
 import random ; # import random module
 
-# guess number function between low and high number
+# random number function to generate a random number between in range
 def random_number(low, high):
     return random.randint(low, high)
-
-
-
-low = 1
-high = 50
-
-# generate a random number between low and high
-correct_answer = None   ;
 
 # user get chances to guess the number
 get_chances = 5
 
+# range of the number to guess   
+low = 1
+high = 50
+
+
+
 # game restart function
 def game_restart(get_chances,correct_answer):
+
+    # ask user to play again or not
     restart = input("Would you like to play again? (Y/N): ")
+
+    # if user want to play again then restart the game
     if restart.lower() == "y":
         game_start(get_chances)
+
+    # if user don't want to play again then exit the game
     else:
         print("\nThanks for playing!")
         # if user can't guess the number in 5 chances then print the correct answer
@@ -27,14 +31,15 @@ def game_restart(get_chances,correct_answer):
         exit()
 
 
-
 # game start function
 def game_start(get_chances = 5):
 
-    # correct answer
+    #  generate a random number between low and high range and store it in correct_answer variable
     correct_answer = random_number(low, high)
+
     print(correct_answer)
-# loop thrpugh 5 times because we have 5 chances to guess the number correctly 
+
+    # loop thrpugh 5 times because we have 5 chances to guess the number correctly 
     for i in range(get_chances):
         # get a guess number
         guess_number = input(f"\nGuess a number between {low} and {high}:")
